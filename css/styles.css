@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html{
+    position:relative; 
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-image: url('../images/background.png')
+}
+main {
+    padding: 20px;
+}
+
+/* layout 1 - is responsive for tablets and above. */
+@media screen and (min-width: 1100px) {
+   main {
+       padding: 0 20% 0px 20%;
+       
+   }
+  }
+
+nav{
+    height: 70px;
+}
+nav ul {
+    background-color: #333333;
+    width: 100vw !important;
+    height: 70px;
+    display: flex;
+    flex-direction: row
+}
+
+li  {
+    width:15%;
+    height: 70px;
+
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #990040;
+    height: 60%;
+}
+a:active {
+    text-decoration: none;
+}
+#current-page {
+    background-color: #990040;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 20px;
+}
+#footer-div {
+    position: relative;
+    flex: 1;
+    margin-top: 20px;
+}
+h1, h4{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+
+.image {
+  border: 2px solid blue;
+  height: 30vh;
+  width: 30vw;
+}
+
+
+img.image2 {
+    border: 3px solid blue;
+    height:50vh;
+    width: 45vw;
+
+}
+/* layout 2 - responsive for tablet sizes and below. Controls the image center and width. - nunezp  */
+@media screen and (max-width: 1100px) {
+    .image {
+        border: 2px solid blue;
+        height: 30vh;
+        width: 100%;
+        display: block;
+      }
+      img.image2 {
+        border: 3px solid blue;
+        height:50vh;
+        width: 100%;
+    
+    }
+   }
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+/* used code from this page: https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/ */
+a.skip-main {
+    left:-999px;
+    position:absolute;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    z-index:-999;
+}
+a.skip-main:focus, a.skip-main:active {
+    color: #fff;
+    background-color:#000;
+    left: auto;
+    top: auto;
+    width: 30%;
+    height: auto;
+    overflow:auto;
+    margin: 10px 35%;
+    padding:5px;
+    border-radius: 15px;
+    border:4px solid yellow;
+    text-align:center;
+    font-size:1.2em;
+    z-index:999;
+}
+.fab, .fas{
+    margin-right: 20px;
+}
+
+input {
+    border: 2px solid black;
+    /* margin-left: 20px;updating for folder */
+    width: 30%;
+    position: absolute;
+    left: 500px;
+
+}
+/* layout 3 - note screensize between tablet and mobile form. - nunezp */
+@media screen and (max-width: 600px) {
+    nav{
+        height: 30px;
+    }
+    nav ul {      
+        flex-direction: column;
+        height: auto;
+        display: flex;
+        
+    }
+    li  {
+        width: 100vw !important;
+        height: 40px;
+    
+    }
+    li a:hover {
+        background-color: #990040;
+        height: 27px;
+    }
+    header {
+        height: 300px;
+    }
+    body {
+        background-image: none;
+    }
+   }
+/* This allows user accessibility for reduce motion settings. - nunezp */
+   @media screen and (prefers-reduced-motion: reduce) {
+        #loading {
+           animation: none !important;
+        }
+    }
+    #loading {
+        /* This ID's purpose is for the display rotation w/ the copyright symbol - nunezp */
+        animation: rotation 2s infinite linear;
+        position: absolute;
+        margin-left: -15px;
+    }
+
+    @keyframes rotation {
+            from {
+                    -webkit-transform: rotate(0deg);
+            }
+            to {
+                    -webkit-transform: rotate(359deg);
+            }
+    }
+
+.container {
+	margin: 0 auto;
+	padding: 0 2rem 2rem;
+}
+
+.heading {
+	font-family: "Montserrat", Arial, sans-serif;
+	font-size: 4rem;
+	font-weight: 500;
+	line-height: 1.5;
+	text-align: center;
+	padding: 3.5rem 0;
+	color: #1a1a1a;
+}
+
+
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -1rem -1rem;
+}
+
+.gallery-item {
+    margin: 1rem auto;
+	flex: 1 0 24rem;
+	
+	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    max-width: 45%;
+}
+
+.gallery-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	
+	transition: transform 400ms ease-out;
+}
+
+.gallery-image:hover {
+	transform: scale(1.05);
+}
