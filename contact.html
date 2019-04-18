@@ -1,3 +1,10 @@
+<!-- Name: Nunez, Priscilla 
+ Class: SI 339
+ Date: 4.18.19
+ Assignment: JavaScript Canvas
+ Instructor: Dr. CVL 
+ GSI: Lee, Sanghyun  -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +24,7 @@
 
     <header>
             <nav>
+                    <a href="#end" class="skip-main"> Skip to content</a>
                     <ul>
                     <li><a href="index.html">Priscilla Nunez</a></li>
                     <li><a href="gallery.html">Gallery</a></li>     
@@ -29,8 +37,7 @@
                 </nav>
     </header>
     <!-- This is the end, no movement of the page will occur. - nunezp -->
-    <main role="main">
-        <a href="#end" class="skip-main"> Skip to content</a>
+    <main>
         <div >
             <div class="image-container">
                 <img src="images/linkedinpic.jpeg" alt="profile picture"/>
@@ -49,23 +56,25 @@
             <p>I am a student in the School of Information at the University of Michigan and am currently researching
                 Conversational AI. </p>
 
-            <h5><a href="http://www.collemc.people.si.umich.edu/">Research Advisor: Colleen Van Lent</a></h5>
+            <h1><a href="http://www.collemc.people.si.umich.edu/"><span class="bold"> Research Advisor: Colleen Van Lent</span> </a></h1>
 
             <p id="end">Interests: Conversational Data, Conversational AI (top-down reasoning), Conversational AI Interface Engineering, Data Science,
                 Machine Learning, Voice Accessibility Design, Voice Inclusion, Voice Computing, Search Engines, Voice AI Search Engine Optimization</p>
                 <!-- Underlining is optional with the tags <u></u> -->
-                <h4>Would you like me to go over your website? Begin your website's voice SEO prep!</h4>
-                <h4>Contact Me:</h4>
-                <form action="https://formspree.io/veostrategies@gmail.com" method="POST">
+    
+                <h2>Would you like me to go over your website? Begin your website's voice SEO prep!</h2>
+                <h2>Contact Me:</h2>
+            <br/>
+                <form action="https://formspree.io/voiceAISEO@gmail.com" method="POST" onsubmit="return validateForm()" >
                 <fieldset>
-                    <label> First name: *<input type="text" name="fname">
+                    <label for="fname"> First name: *<input type="text" id="fname" name="fname" placeholder="Enter your first name">
                     </label><span id="firstname"></span><br/><br/>
-                    <label> Last name: *<input type="text" name="lname"></label><span id="lastname"></span><br/><br/>
-                    <label> Email: *<input type="email" name="email"></label><br/><br/>
-                    <label> Website: *<input type="text" required name="website"></label><br/><br/>
-                    <label> Purpose of website: *<input type="text" required name="website info"></label><span id="website-info"></span><br/><br/>
+                    <label for="lname"> Last name: *<input type="text" id="lname" name="lname"placeholder="Enter your last name"></label><span id="lastname"></span><br/><br/>
+                    <label for="email"> Email: *<input id="email" type="email" name="email"placeholder="Enter your email address"></label><br/><br/>
+                    
                     <!-- submit button is currently defunct - nunezp -->
-                    <button>Submit</button>
+                    <p id="errormessage"></p>
+                    <button id="submit" type="submit" aria-label="submit button" name="submit">Submit</button>
                 </fieldset><br/>
                 </form>
         </div>
@@ -73,6 +82,36 @@
     <div id="footer-div">
         <footer> <span id="loading">©</span>Voice SEO by Priscilla Nunez </footer>
     </div>
+    <script>
+        function validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+        const validateForm = function(){
+            const fname = document.getElementById("fname").value 
+            const lname = document.getElementById("lname").value
+            const email = document.getElementById("email").value
+            const errormessage = document.getElementById("errormessage")
+            errormessage.style.display = "none"
+            if(!fname){
+                errormessage.innerHTML = "Please enter your first name."
+                errormessage.style.display = "block"
+                return false
+            }
+            if(!lname){
+                errormessage.innerHTML = "Please enter your last name."
+                errormessage.style.display = "block"
+                return false
+            }
+            if (!email || ! validateEmail(email)){
+                errormessage.innerHTML = "Please enter a valid email address."
+                errormessage.style.display = "block"
+                return false
+            }
+            return true 
+        }
+      
+    </script>
 </body>
 
 </html>
