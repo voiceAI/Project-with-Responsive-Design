@@ -6,14 +6,17 @@
  GSI: Lee, Sanghyun  
  **/
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
+@font-face {
+    font-family: voice-seo-fonts;
+    src: url('../fonts/charter-itc-tt/CHARI.ttf')
+}
 html{
     position:relative; 
     min-height: 100%;
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'voice-seo-fonts','Helvetica', 'Arial', sans-serif;
 }
 main {
     padding: 20px;
